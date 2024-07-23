@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Instacontext from './Instacontext';
 
 export default function Instastate(props) {
+    const url='https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/'
     const [user, setuser] = useState({ "fullname": "", "username": "" })
     const getUser = async () => {
-        const response = await fetch("http://localhost:5000/insta/auth/getuser", {
+        const response = await fetch(`${url}/auth/getuser`, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -17,7 +18,7 @@ export default function Instastate(props) {
 
     }
     const userPage = async (user) => {
-        const response = await fetch(`http://localhost:5000/insta/auth/userPage/${user}`, {
+        const response = await fetch(`${url}/insta/auth/userPage/${user}`, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +30,7 @@ export default function Instastate(props) {
     }
 
     const updatePic = async (pic) => {
-        const response = await fetch("http://localhost:5000/insta/update/updatepic", {
+        const response = await fetch(`${url}/insta/update/updatepic`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export default function Instastate(props) {
 
 
     const addPost = async (pic, caption) => {
-        const response = await fetch("http://localhost:5000/insta/post/addpost", {
+        const response = await fetch(`${url}/insta/post/addpost`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -74,7 +75,7 @@ export default function Instastate(props) {
     }
 
     const picDetails = async (picnum, user) => {
-        const response = await fetch(`http://localhost:5000/insta/post/postdetails/${user}`, {
+        const response = await fetch(`${url}/insta/post/postdetails/${user}`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -96,7 +97,7 @@ export default function Instastate(props) {
     }
 
     const follow = async (username) => {
-        const response = await fetch(`http://localhost:5000/insta/follow/follow`, {
+        const response = await fetch(`${url}/insta/follow/follow`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -118,7 +119,7 @@ export default function Instastate(props) {
     }
 
     const unfollow = async (username) => {
-        const response = await fetch(`http://localhost:5000/insta/follow/unfollow`, {
+        const response = await fetch(`${url}/insta/follow/unfollow`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -138,7 +139,7 @@ export default function Instastate(props) {
 
     }
     const fetchAll = async (blueTick) => {
-        const response = await fetch(`http://localhost:5000/insta/auth/allusers`, {
+        const response = await fetch(`${url}/insta/auth/allusers`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -162,7 +163,7 @@ export default function Instastate(props) {
 
     // Fetch all followers and the followings of the user
     const fetchFo = async (id, followers, following) => {
-        const response = await fetch(`http://localhost:5000/insta/follow/fetchfo`, {
+        const response = await fetch(`${url}/insta/follow/fetchfo`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -186,7 +187,7 @@ export default function Instastate(props) {
     }
 
     const story = async (pic, music) => {
-        const response = await fetch(`http://localhost:5000/insta/update/story`, {
+        const response = await fetch(`${url}/insta/update/story`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -205,7 +206,7 @@ export default function Instastate(props) {
 
     }
     const editProfile = async (user) => {
-        const response = await fetch(`http://localhost:5000/insta/update/edit`, {
+        const response = await fetch(`${url}/insta/update/edit`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -226,7 +227,7 @@ export default function Instastate(props) {
         }
     }
     const writeComment = async (content, postId) => {
-        const response = await fetch(`http://localhost:5000/insta/comments/posts/${postId}/comments`, {
+        const response = await fetch(`${url}/insta/comments/posts/${postId}/comments`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -245,7 +246,7 @@ export default function Instastate(props) {
         }
     }
     const writeReply = async (content, postId, commentId) => {
-        const response = await fetch(`http://localhost:5000/insta/comments/${commentId}/replies`, {
+        const response = await fetch(`${url}/insta/comments/${commentId}/replies`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -266,7 +267,7 @@ export default function Instastate(props) {
     }
 
     const commentLike = async (commentId) => {
-        const response = await fetch(`http://localhost:5000/insta/comments/${commentId}/like`, {
+        const response = await fetch(`${url}/insta/comments/${commentId}/like`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -279,7 +280,7 @@ export default function Instastate(props) {
         }
     }
     const postLike = async (postId) => {
-        const response = await fetch(`http://localhost:5000/insta/post/${postId}/postlike`, {
+        const response = await fetch(`${url}/insta/post/${postId}/postlike`, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",
@@ -292,7 +293,7 @@ export default function Instastate(props) {
         }
     }
     const messagedUser = async () => {
-        const response = await fetch(`http://localhost:5000/insta/auth/messaged`, {
+        const response = await fetch(`${url}/insta/auth/messaged`, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
             headers: {
                 "Content-Type": "application/json",

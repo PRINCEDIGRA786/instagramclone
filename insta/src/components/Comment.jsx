@@ -16,7 +16,7 @@ const Comment = ({ postId }) => {
       let user=await getUser();
       setUserId(user._id)
     try {
-      const response = await fetch(`http://localhost:5000/insta/comments/posts/${postId}/comments`);
+      const response = await fetch(`https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/insta/comments/posts/${postId}/comments`);
       const data = await response.json();
       setComments(data.map(comment => ({
         ...comment,
@@ -33,7 +33,7 @@ const Comment = ({ postId }) => {
 
   const commentDislike = async (commentId) => {
     try {
-      const response = await fetch(`http://localhost:5000/insta/comments/${commentId}/unlike`, {
+      const response = await fetch(`https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/insta/comments/${commentId}/unlike`, {
         method: 'DELETE', // Specifying the method type
         headers: {
           'Content-Type': 'application/json', // Ensure the content type is specified

@@ -15,6 +15,10 @@ const port = 5000;
 app.use(cors());
 app.use(express.json()); // This is to let the use of req.body...
 
+
+app.get('/',(req,res)=>{
+    res.send("Connected to Vercel Successfully");
+})
 // Routes:
 app.use('/insta/auth', require('./routes/auth'));
 app.use('/insta/post', require('./routes/post'));

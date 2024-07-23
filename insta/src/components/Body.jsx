@@ -264,7 +264,7 @@ export default function Body() {
   };
   const postDisklike = async (postId) => {
     try {
-      const response = await fetch(`http://localhost:5000/insta/post/${postId}/unlike`, {
+      const response = await fetch(`https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/insta/post/${postId}/unlike`, {
         method: 'DELETE', // Specifying the method type
         headers: {
           'Content-Type': 'application/json', // Ensure the content type is specified

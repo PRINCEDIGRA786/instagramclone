@@ -8,7 +8,7 @@ const Login = () => {
     const handleClick=async(e)=>{
       e.preventDefault()
       // console.log("values dekhi",log.email,log.password)
-      const response = await fetch("https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/insta/auth/login", {
+      const response = await fetch("https://instagramclone-taupe.vercel.app/insta/auth/login", {
               method: "POST", // *GET, POST, PUT, DELETE, etc.
               headers: {
                   "Content-Type": "application/json",

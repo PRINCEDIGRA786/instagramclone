@@ -8,7 +8,7 @@ export default function Signup() {
     const handleClick=async()=>{
       // e.preventDefault()
       // console.log("values dekhi",log.email,log.password)
-      const response = await fetch("https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/insta/auth/signup", {
+      const response = await fetch("https://instagramclone-taupe.vercel.app/insta/auth/signup", {
               method: "POST", // *GET, POST, PUT, DELETE, etc.
               headers: {
                   "Content-Type": "application/json",

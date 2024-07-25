@@ -3,7 +3,7 @@ import Navbars from './Navbars';
 import Instacontext from '../contextapi/Instacontext';
 import io from 'socket.io-client';
 
-const serverURL = 'https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/'; // Replace with your backend URL
+const serverURL = 'https://instagramclone-taupe.vercel.app'; // Replace with your backend URL
 const socket = io(serverURL);
 
 const Message = () => {

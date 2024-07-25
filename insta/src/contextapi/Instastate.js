@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Instacontext from './Instacontext';
 
 export default function Instastate(props) {
-    const url='https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/'
+    const url='https://instagramclone-taupe.vercel.app/'
     const [user, setuser] = useState({ "fullname": "", "username": "" })
     const getUser = async () => {
         const response = await fetch(`${url}/auth/getuser`, {

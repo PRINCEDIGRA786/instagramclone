@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Signup() {
   const navigate=useNavigate();
     const[log,setlog]=useState({"email":"","password":"","fullname":"","username":""})
-    const handleClick=async(e)=>{
-      e.preventDefault()
+    const handleClick=async()=>{
+      // e.preventDefault()
       // console.log("values dekhi",log.email,log.password)
       const response = await fetch("https://instagramclone-mrervlcqj-princedigra786s-projects.vercel.app/insta/auth/signup", {
               method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -106,7 +106,7 @@ export default function Signup() {
      </div>
       <div id='button' className=' mt-4'>
         <button className=' p-1 text-white text-sm font-semibold
-         h-8 text-balance  w-full bg-[#1ca1dad9] hover:bg-[#45a7d2f6] rounded-lg' onClick={handleClick}>Sign up </button>
+         h-8 text-balance  w-full bg-[#1ca1dad9] hover:bg-[#45a7d2f6] rounded-lg hover:bg-blue-900' onClick={()=>handleClick()}>Sign up </button>
       </div>
 
       </div>

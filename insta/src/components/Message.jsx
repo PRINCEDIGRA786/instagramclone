@@ -26,10 +26,14 @@ const Message = () => {
   useEffect(() => {
     if (selectedUser) {
       socket.emit('joinRoom', { userId: selectedUser });
+fetch(`${serverURL}/insta/messages/${selectedUser}`, {
+  mode: 'cors',
+  credentials: 'include'
+})
+  .then(response => response.json())
+  .then(data => setMessages(data))
+  .catch(error => console.error('Error fetching messages:', error));
 
-      fetch(`${serverURL}/insta/messages/${selectedUser}`)
-        .then(response => response.json())
-        .then(data => setMessages(data));
 
       socket.on('receiveMessage', message => {
         if (message.sender === selectedUser || message.receiver === selectedUser) {

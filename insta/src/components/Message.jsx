@@ -26,14 +26,19 @@ const Message = () => {
   useEffect(() => {
     if (selectedUser) {
       socket.emit('joinRoom', { userId: selectedUser });
-fetch(`${serverURL}/insta/messages/${selectedUser}`, {
-  mode: 'cors',
-  credentials: 'include'
-})
-  .then(response => response.json())
-  .then(data => setMessages(data))
-  .catch(error => console.error('Error fetching messages:', error));
 
+      fetch(`${serverURL}/insta/messages/${selectedUser}`, {
+        mode: 'cors',
+        credentials: 'include'
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => setMessages(data))
+      .catch(error => console.error('Error fetching messages:', error));
 
       socket.on('receiveMessage', message => {
         if (message.sender === selectedUser || message.receiver === selectedUser) {
@@ -62,7 +67,6 @@ fetch(`${serverURL}/insta/messages/${selectedUser}`, {
     <>
       <Navbars />
       <div className="flex ml-52 min-h-[100vh]">
-        {/* Left Side: List of Users */}
         <div className="w-80 bg-[#252525] px-6 text-white p-4">
           <h2 className="text-lg font-semibold text-center my-3 mb-6">Messages</h2>
           <ul>
@@ -84,7 +88,6 @@ fetch(`${serverURL}/insta/messages/${selectedUser}`, {
           </ul>
         </div>
 
-        {/* Right Side: Chat Window */}
         <div className="w-3/4 bg-black text-white p-4">
           {selectedUser ? (
             <div>
@@ -123,5 +126,4 @@ fetch(`${serverURL}/insta/messages/${selectedUser}`, {
   );
 };
 
-export default Message; 
- 
+export default Message;
